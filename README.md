@@ -1,6 +1,9 @@
 # paju
 army paju 
 
+
+
+
 snmptrap v3 명령어
 
 sudo apt-get install snmptrapd
