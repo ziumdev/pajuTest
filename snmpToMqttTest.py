@@ -8,10 +8,6 @@ from snmp.exceptions import Timeout
 import mqttConfig
 import json
 
-
-# uncomment this for verbose output
-#logging.basicConfig(level=logging.DEBUG)
-
 # REPLACE 'public' with your community string
 manager = Manager(b'test')
 
