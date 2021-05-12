@@ -12,23 +12,23 @@ oidList = ["1.3.6.1.4.1.30960.2.1.5.1.1.9.1", "1.3.6.1.4.1.30960.2.1.5.1.1.9.2",
            "1.3.6.1.4.1.30960.2.1.5.1.1.9.4", "1.3.6.1.4.1.30960.2.1.5.1.1.9.5", "1.3.6.1.4.1.30960.2.1.5.1.1.9.6"]
 mqttTopic = '/oneM2M/req/SiotTestAE/iotCore'
 
-#sample data
-data = {
-    'to': '/iotCore/AEe2c8236c-7d26-48d2-9cc7-29e79129c811/vm',
-    'fr': 'SiotTestAE',
-    'rqi': 'fe38396ed4564d8db19f34377f49f6f3',
-    'pc': {"m2m:cin":{"con":0}},
-    'op': 1,
-    'ty': 4,
-    'sec': 0
-}
-
 
 def sendData(topic, payload, qos):
     mqttConfig.mqClient.publish(topic=topic, payload=json.dumps(payload), qos=qos)
 
 
 def getData(oids):
+    # sample data
+    data = {
+        'to': '/iotCore/AEe2c8236c-7d26-48d2-9cc7-29e79129c811/vm',
+        'fr': 'SiotTestAE',
+        'rqi': 'fe38396ed4564d8db19f34377f49f6f3',
+        'pc': {"m2m:cin": {"con": 0}},
+        'op': 1,
+        'ty': 4,
+        'sec': 0
+    }
+
     for oid in oids:
         iterator = getCmd(SnmpEngine(), CommunityData('public'), UdpTransportTarget((host, port)), ContextData(),
                       ObjectType(ObjectIdentity(oid)))
