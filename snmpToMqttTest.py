@@ -51,6 +51,6 @@ def getData(oids):
 
 
 if __name__ == '__main__':
-    mqttPayload = getData(oidList)
-    sendData(mqttTopic, mqttPayload, 0)
+    getData(oidList)
+   
 
